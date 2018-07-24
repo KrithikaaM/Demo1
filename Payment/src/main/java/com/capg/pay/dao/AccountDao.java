@@ -71,17 +71,27 @@ public boolean addAccountDetails(Account pojo)
 		
 	}
 	public void showBalance()
-	{
-			System.out.println("Your balance is:"+pojo.getBalance());
+	
+	{  
+			
+		 double balance = pojo.getBalance();
+			pojo.setBalance(balance);
+			System.out.println("Your balance is:"+balance);
 		
+			
+	}
+	public void fundTransfer(double accountNo,double accountNo2) 
+	{    
+		for(Account pojo2:list){
+			if(pojo2.getAccountNo()==accountNo2){
+        System.out.println(pojo.getBalance());
 
+		}
+			
+		
+		}}
+		
+		
+		
 		
 	}
-	public void fundTransfer(double accountNo,double accountNo2)
-	{
-		
-		
-		
-		
-	}
-}

@@ -1,5 +1,6 @@
 package com.capg.pay.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.capg.pay.bean.Account;
@@ -29,7 +30,7 @@ AccountDao dao = new AccountDao();
 	
 	public void showBalance() {
 		// TODO Auto-generated method stub
-	 dao.showBalance();
+	  dao.showBalance();
 	}
 	public void fundTransfer(double accountNo,double accountNo2) {
 		// TODO Auto-generated method stub

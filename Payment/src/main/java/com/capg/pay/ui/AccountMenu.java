@@ -90,7 +90,8 @@ static Validate valid = new Validate();
     	System.out.println("login success!");
 	}
     else
-    {
+    {   
+    	System.out.println("Wrong crendentials...");
     	System.out.println("Please create an account first!");
     	createAccount();
     }
@@ -99,8 +100,7 @@ static Validate valid = new Validate();
 	private static void logOut() {
 		// TODO Auto-generated method stub
 		System.out.println("You have chosen to logout");
-		System.exit(0);
-
+		
 	}
 
 	private static void printTransaction() {
@@ -117,42 +117,32 @@ static Validate valid = new Validate();
 
 	private static void fundtransfer() {
 		// TODO Auto-generated method stub
-		Account pojo2 = new Account();
+		
 		AccountService service = new AccountService();
 		//setting values for fund transfer
 		
-		pojo2.setName("lala");
-		pojo2.setAadharNo(12345654);
-		pojo2.setAccountNo(45678);
-		pojo2.setAddress("Trichy");
-		pojo2.setBalance(2000);
 		
-		pojo2.setEmail("lala@gmail.com");
-		pojo2.setGender("Female");
-		pojo2.setPhoneNo(1234567654);
-		service.addAccountDetails(pojo2);
 		/*int transactionId = rand.nextInt(50);
 		pojo2.setTransactionId(transactionId);*/
 		
 		System.out.println("You have chosen to transfer amount");
-		
-		double accountNo2,amount;
-		try {
-			
-			System.out.println("Enter account number of the other person:");
-			accountNo2 = Double.parseDouble(br.readLine());
-			
-			service.fundTransfer(pojo.getAccountNo(), accountNo2);
-			
-			
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("Enter account no of other person:");
+	double accountNo2;
+	try {
+		accountNo2 = Double.parseDouble(br.readLine());
+		   double accountNo = pojo.getAccountNo();
+		   accountNo2 = pojo2.getAccountNo();
+		  
+				service.fundTransfer(accountNo, accountNo2);
+	} catch (NumberFormatException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}	
 
+		
 	}
 
 	private static void showBalance() {
@@ -233,7 +223,7 @@ static Validate valid = new Validate();
 
 	private static void createAccount() {
 		// TODO Auto-generated method stub
-		
+		Account pojo = new Account();
 		AccountService service = new AccountService();
 		System.out.println("You have chosen to create account");
 		System.out.println("WELCOME !!");
@@ -314,9 +304,10 @@ static Validate valid = new Validate();
 		    pojo.setUserName(username);
 		    pojo.setPassword(password);
 			service.addAccountDetails(pojo);
+			System.out.println(pojo.toString());
 			System.out.println("Details added successfully !!");
-			login();
-            
+			//login();
+            System.out.println(pojo.toString());
 			//System.out.println("Your cust id is:" + pojo.getCustId());
 			// System.out.println(b);
 			// System.out.println("1."+pojo);
